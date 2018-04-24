@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+</head>
+
+<body>
+
+
+<div ng-app="myApp" ng-controller="Aaa">
+	<input type="text" ng-model="filterVal"/>
+	<input type="button" ng-click="fnFilter()" value="搜索"/>
+	
+	<table border="1">
+		<thead>
+			<th ng-click="fnSort('name')">name</th>
+			<th ng-click="fnSort('age')">age</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="data in dataList">
+				<td>{{data.name}}</td>
+				<td>{{data.age}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+    
+
+    <script src="angular.min.js"></script>
+    <script>
+        //创建一个模块
+        //参数一：创建模块的名称   参数二：数组（依赖列表）没有就是空数组
+        let myTable = angular.module('myApp', []);
+
+        /*
+            控制器的作用是视图与数据之间的桥梁，数据转视图 视图转数据
+            定义控制并获取该控制器进行对应的赋值   
+            一个模块所有逻辑都可以写在这个控制器中
+        */
+        myTable.controller('Aaa', ['$scope', '$filter', function ($scope, $filter) {
+
+            let arr = [
+                { name: 'blue', age: 10 },
+                { name: 'red', age: 22 },
+                { name: 'green', age: 45 },
+                { name: 'yellow', age: 66 },
+                { name: 'pink', age: 33 },
+                { name: 'gray', age: 54 },
+            ]
+
+            $scope.dataList = arr;
+
+
+            /*
+                arguments.callee 在哪个函数中运行 那么就为哪个函数  一般运行在匿名函数中
+                arguments 是一个对象
+                callee
+                    是arguments下的方法 
+                    caller是函数对象的一个属性，该属性保存着调用当前函数的函数  是获取当前调用函数的本体
+            */
+            $scope.fnSort = function (str) {
+                arguments.callee['fnSort' + str] = !arguments.callee['fnSort' + str];  //取反 调用函数的本体 
+                $scope.dataList = $filter('orderBy')($scope.dataList, str, arguments.callee['fnSort' + str]);
+            }
+
+            //点击搜索的时候进行过滤
+            $scope.fnFilter = function () {
+                $scope.dataList = $filter('filter')(arr, $scope.filterVal);
+            }
+
+        }]);
+
+
+    </script>
+</body>
+
+</html>
