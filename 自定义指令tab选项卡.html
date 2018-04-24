@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+#div1 div,#div2 div{ width:200px; height:200px; border:1px red solid; display:none;}
+#div1 input.active , #div2 input.active{ background:red;}
+</style>
+</head>
+<body ng-controller="Aaa">
+
+<my-tab my-id="div1" my-name="name" my-fn="show(num)"></my-tab>
+<my-tab my-id="div2" my-name="name" my-fn="show(num)"></my-tab>
+<!-- <div id="div1">
+	<input class="active" type="button" value="111">
+    <input type="button" value="222">
+    <input type="button" value="333">
+    <div style="display:block">11111111</div>
+    <div>22222222</div>
+    <div>33333333</div>
+</div> -->
+
+
+<script src="angular.min.js"></script>
+<script>
+let m1 = angular.module('myApp', []);
+
+m1.directive('myTab', function(){
+    return {
+        restrict:'E',
+        replace:true,
+        scope:{
+            myId:'@',
+            myName:'=',
+            myFn:'&'
+        },  //隔离作用域
+        controller: ['$scope', function ($scope) {
+            $scope.name = 'miaov';
+        }],
+        template:'<div id="{{myId}}">\
+                    <input class="active" type="button" value="111" ng-click="myFn({num:456})">\
+                    <input type="button" value="222">\
+                    <input type="button" value="333">\
+                    <div style="display:block">{{name}}</div>\
+                    <div>22222222</div>\
+                    <div>33333333</div>\
+                </div>'
+        
+    }
+
+});
+
+m1.controller('Aaa',['$scope',function($scope){
+    $scope.name = 'hello';
+    $scope.show = function(n){
+        alert(n);
+    }
+}])
+
+
+</script>
+</body>
+</html>
