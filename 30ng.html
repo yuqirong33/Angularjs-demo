@@ -31,7 +31,7 @@ m1.directive('myTab',function(){
 			element.delegate('input','click',function(){
 				$(this).attr('class','active').siblings('input').attr('class','');
 				$(this).siblings('div').eq( $(this).index() ).css('display','block').siblings('div').css('display','none');
-			});
+			}); 
 		}
 	};
 });
