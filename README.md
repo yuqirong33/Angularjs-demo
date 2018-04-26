@@ -358,62 +358,88 @@ ng-submit
 * ng-value
     * 和value的区别是：
     * 变量一个要写花括号一个不用谢花括号，建议使用ng-value 因为优化时间上对比ng-value的速度要快，用户体验要好
-    * <input type="button" value="{{text}}" />
-    * <input type="button" ng-value="text" />
+```html
+<input type="button" value="{{text}}" />
+<input type="button" ng-value="text" />
+```
 
 ### 其他指令：
 * ng-bind
-    * <div  ng-bind="text"></div>
+```html
+<div  ng-bind="text"></div>
+```
 
 * ng-cloak
     * 标签隐藏 相当于style="display:none"
 
 * ng-bind-template   
     * 支持多个指令，支持多个表达式
-    * <div  ng-bind-template="  {{text}}  ,  {{text}} "></div>
+```html
+<div  ng-bind-template="{{text}},{{text}}"></div>
+```
 
 * bg-bind-html
     * 把HTML标签结构的代码用字符串格式显示在页面当中
-    * $scope.text =  '<h1>hello<h1>'
-    * <div  ng-bind-html="text"></div>
+```html
+$scope.text =  '<h1>hello<h1>'
+<div  ng-bind-html="text"></div>
+```
 
 * ng-non- bindable
     * 不被解析也就是花括号里的写的什么就是什么{{ text }}
 
 ### 样式相关的指令：
 * ng-class
-    * <div  ng-class=" { red:true } "></div>
+```html
+<div  ng-class=" { red:true } "></div>
+```
 
 * ng-style
-    * <div  ng-style=" { color  :  '  red  '  ,  background  :  '  yeollw ' } "></div>
+```html
+<div  ng-style=" { color  :  '  red  '  ,  background  :  '  yeollw ' } "></div>
+```
 
 * ng-href
-    * <div  ng-href="{{url}} "></div>
+```html 
+<div  ng-href="{{url}} "></div>
+```
 
 * ng-src
-    * <div  ng-src="{{url}}"></div>
+```html
+<div  ng-src="{{url}}"></div>
+```
 
 * ng-attr-(suffix)
     * ng-attr-任何属性名称
-    * <div  ng-href="{{url}}   ng-attr-title="{{text}}"></div>
+```html
+<div  ng-href="{{url}}   ng-attr-title="{{text}}"></div>
+```
 
 ### DOM相关指令：
-* ng-show
-    * <div  ng-show=" true "></div>    显示
-    * <div  ng-show=" false "></div>    隐藏
-    * 应用：勾选复选框字体显示隐藏
-    * $scope.Btn  =  true
-    * <input   type="checkbox"   ng-model="  Btn  " />
-    * <div  ng-show="  Btn  "></div>
+ng-show
+```html
+<div  ng-show=" true "></div>    显示
+<div  ng-show=" false "></div>    隐藏
+```
+应用：勾选复选框字体显示隐藏
+```JavaScript
+$scope.Btn  =  true
+<input   type="checkbox"   ng-model="  Btn  " />
+<div  ng-show="  Btn  "></div>
+```
 
-* ng-hide 
-    * <div  ng-hide=" true "></div>  隐藏
-    * <div  ng-hide=" false "></div> 显示
+ng-hide 
+```html
+<div  ng-hide=" true "></div>  隐藏
+<div  ng-hide=" false "></div> 显示
+```
 
 * ng-if
     * 对DOM节点添加和删除的操作
-    * <div  ng-if=" true "></div>   添加
-    * <div  ng-if=" false "></div>   删除
+```html
+<div  ng-if=" true "></div>   添加
+<div  ng-if=" false "></div>   删除
+```
 
 ng-swtich
 on
@@ -441,16 +467,22 @@ default
 ### 扩展指令：
 * ng-init
     * 初始化设置  text变量为hello
-    * <div  ng-controller="Aaa"  ng-init=" text='  hello ' ">{{ text }}</div>
+```html
+<div  ng-controller="Aaa"  ng-init=" text='  hello ' ">{{ text }}</div>
+```
 
 * ng-include
     * 通过模板的方式引入文件
-    * <div  ng-controller="Aaa"  ng-include="' temp.html '"></div>  引入temp.html文件里的东西
+```html
+<div  ng-controller="Aaa"  ng-include="' temp.html '"></div>  引入temp.html文件里的东西
+```
 
 * ng-model  双向数据绑定
 * ng-model-options  控制双向数据绑定的具体过程
-    * <input type="text"  ng-model="text"  ng-model-options=" { updataOn :  ' blur ' } " />
-    * 当光标移出的时候显示数据变化
+```html
+<input type="text"  ng-model="text"  ng-model-options=" { updataOn :  ' blur ' } " />     当光标移出的时候显示数据变化
+```
+
 
 * updataOn 
     * 控制光标效果
