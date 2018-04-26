@@ -197,14 +197,14 @@ $rootScope.name  =  'hello';
 
 * json
     * 将json格式的字符串显示更友好
-    * <pre>{{ name |  json  }}</pre>  //注意：必须在<pre>标签，因为能够识别
+    * <pre>{{ name |  json  }}</pre>  注意：必须在<pre>标签，因为能够识别
     * 转换为：
-         ```javascript
-            {
-            "name"  :  "hello",
-            "age"  :  "20"
-            }
-        ```
+```javascript
+{
+"name"  :  "hello",
+"age"  :  "20"
+}
+```
 
 * limitTo
     * 截取的操作，数组、字符串
