@@ -221,10 +221,10 @@ m1.run(['$rootScope',function($rootScope){
     * 排序 针对数组 数组格式必须：
 ```javascript
 $scope.name =  [
-{  name :  'red'  ,  age  :  '20'  },
-{  name :  'yellow'  ,  age  :  '15'  },
-{  name :  'blue'  ,  age  :  '40'  },
-{  name :  'green'  ,  age  :  '10'  },
+    {  name :  'red'  ,  age  :  '20'  },
+    {  name :  'yellow'  ,  age  :  '15'  },
+    {  name :  'blue'  ,  age  :  '40'  },
+    {  name :  'green'  ,  age  :  '10'  },
 ]
 {{  name | orderBy  :    'color'  ： true  }}    //默认从小到大排序  第三个参数可以逆排序
 ```
@@ -268,31 +268,43 @@ ng-model
     * 扩展部分：
     * $index
     * 得到遍历的索引
-    * <li  ng-repeat="  data in datalist  ">{{ $index }}</li>
+```html
+<li  ng-repeat="  data in datalist  ">{{ $index }}</li>
+```
 
 * $first
     * 只要是集合的第一项就会返回真 true   否则是false
-    * <li  ng-repeat="  data in datalist  ">{{ $first }}</li>
+```html
+<li  ng-repeat="  data in datalist  ">{{ $first }}</li>
+```
 
 * $middle
     * 中间项都会返回真 true，否则就是假 false   除了首项和尾项  其他都是中间项
-    * <li  ng-repeat="  data in datalist  ">{{ $middle }}</li>
+```html
+<li  ng-repeat="  data in datalist  ">{{ $middle }}</li>
+```
 
 * $last
     * 只要是集合的最后一项就会返回真 true 否则是false 
-    * <li  ng-repeat="  data in datalist  ">{{ $last }}</li>
+```html
+<li  ng-repeat="  data in datalist  ">{{ $last }}</li>
+```
 
 * $even
     * 代表奇数，返回true，否则false
-    * <li  ng-repeat="  data in datalist  ">{{ $even }}</li>
+```html
+<li  ng-repeat="  data in datalist  ">{{ $even }}</li>
+```
 
 * $odd
     * 代表偶数，返回true，否则false
-    * <li  ng-repeat="  data in datalist  ">{{ $odd }}</li>
+```html
+<li  ng-repeat="  data in datalist  ">{{ $odd }}</li>
+```
 
 ng-repeat-start        
 ng-repeat-end        
-```javascript
+```html
 <div  ng-repeat-start=" data in datalist ">{{ data }}</div>
 <p>{{ data }}</p>
 <div  ng-repeat-end>{{ data }}</div>
@@ -312,7 +324,7 @@ ng-submit
 ### 事件指令：
 * ng-selected
     * 下拉菜单选中触发
-```javascript
+```html
 <input  type="checkbox"  ng-model= "  aaa ">
 <select>
 <option>1111</option>
@@ -351,7 +363,7 @@ ng-submit
 ### input 相关指令：
 和传统的input事件区别：可以直接写表达式，可以直接操作数据变量，进行动态的操作
 * ng-disabled
-  	* 按钮禁止使用属性
+    * 按钮禁止使用属性
     * <input type="button" value="{{text}}" ng-disabled="isDisabled"/>
     * 在模块函数中使用 $scope.isDisabled = true;
 
@@ -453,7 +465,7 @@ default
 * when
     * 应用：一开始显示默认效果 当点击复选框的时候显示切换效果  ng-swtich   on=" Btn " 配合使用
     * $scope.Btn  =  true
-```javascript
+```html
 <input type="checkbox" ng-model="Btn" />
 <div ng-swtich on=" Btn ">
     <p  ng-swtich-default>默认效果</p>
@@ -463,7 +475,7 @@ default
 
 * ng-open
     * 初始控制打开效果
-```javascript
+```html
 <details  ng-open=" true ">     
     <summary>Copyright  2011.</summary>
     <p>All  pages and graphics on this web site are the property of W3Shool</p>
