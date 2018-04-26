@@ -327,8 +327,8 @@ ng-submit
 ```html
 <input  type="checkbox"  ng-model= "  aaa ">
 <select>
-<option>1111</option>
-<option  ng-select=" aaa ">2222</option>
+    <option>1111</option>
+    <option  ng-select=" aaa ">2222</option>
 </select>
 ```
 当我选中checkbox 下拉框也跟着选中我绑定的aaa
