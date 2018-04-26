@@ -43,7 +43,7 @@ $timeout.cancel(timer);清除定时器
     * 定时炸弹相当于setInterval，但是setInterval不具备改变数据的时候刷新
 ```javascript
 $interval(function(){
-//do  something
+    //do  something
 },1000)
 $interval.cancel(timer);清除定时器
 ```
@@ -161,9 +161,9 @@ $interval.cancel(timer);清除定时器
     * 针对数据变化，监听数据变化，一旦有变化就会影响视图
 ```javascript
 setTimeout(function(){
-$scope.$apply(function(){
-$scope.name =  'hi'
-})
+    $scope.$apply(function(){
+        $scope.name =  'hi'
+    })
 },2000)
 ```
 正常情况下setTimeout是不会发生视图变化的
@@ -176,7 +176,7 @@ $scope.name =  'hi'
     * 初始化全局的数据,
 ```javascript
 m1.run(['$rootScope',function($rootScope){
-$rootScope.name  =  'hello';
+    $rootScope.name  =  'hello';
 }])
 ```
 注意：只能全局作用域下才能使用
@@ -203,8 +203,8 @@ $rootScope.name  =  'hello';
 转换为：
 ```javascript
 {
-"name"  :  "hello",
-"age"  :  "20"
+    "name"  :  "hello",
+    "age"  :  "20"
 }
 ```
 
@@ -247,9 +247,9 @@ $scope.name =  [
 * 必须在模块下面进行实现的
 ```javascript
 m1.filter(' firstUpper ',function(){      //自定义过滤器  firstUpper自定义过滤器的名字
-return function( str ){
-return str.charAt(0).toUpperCase()  +  str.sustring(1);
-}
+        return function( str ){
+        return str.charAt(0).toUpperCase()  +  str.sustring(1);
+    }
 })
 ```
 
@@ -323,15 +323,21 @@ ng-submit
 
 * ng-change
     * 当输入框中的数据发生改变的时候触发
-    * <input   type="text"  ng-change=" bbb='hello' "  ng-model=" bbb " />{{ bbb }}
     * 使用ng-change一定要配合ng-model不然没效
     * 只要改变input框的值的时候bbb的值就为hello
     * 也可以写函数形式触发
+```html
+<input   type="text"  ng-change=" bbb='hello' "  ng-model=" bbb " />{{ bbb }}
+```
+    
 
 * ng-copy
     * 在input框进行复制的时候就会触发ng-copy指令
-    * <input   type="text"   value="sfsgfdgd"  ng-copy="ccc=true"/>{{ ccc }}
     * 只要进行了复制那么{{ ccc }}的值就会变为true
+```html
+<input   type="text"   value="sfsgfdgd"  ng-copy="ccc=true"/>{{ ccc }}
+```
+    
 
 * ng-cut
     * 在input框进行剪切的时候就会触发ng-cut指令
@@ -448,10 +454,10 @@ default
     * 应用：一开始显示默认效果 当点击复选框的时候显示切换效果  ng-swtich   on=" Btn " 配合使用
     * $scope.Btn  =  true
 ```javascript
-<input   type="checkbox"   ng-model="  Btn  " />
-<div  ng-swtich   on=" Btn ">
-<p  ng-swtich-default>默认效果</p>
-<p  ng-swtich-when="false">切换的效果</p>
+<input type="checkbox" ng-model="Btn" />
+<div ng-swtich on=" Btn ">
+    <p  ng-swtich-default>默认效果</p>
+    <p  ng-swtich-when="false">切换的效果</p>
 </div>
 ```
 
@@ -459,8 +465,8 @@ default
     * 初始控制打开效果
 ```javascript
 <details  ng-open=" true ">     
-<summary>Copyright  2011.</summary>
-<p>All  pages and graphics on this web site are the property of W3Shool</p>
+    <summary>Copyright  2011.</summary>
+    <p>All  pages and graphics on this web site are the property of W3Shool</p>
 </details>
 ```
 
@@ -494,18 +500,18 @@ default
 ```javascript
 var m1=angular.module('  myApp  ',[]);
 m1.controller('  Aaa  ',['  $scope  ',  FnAaa]);
-function  FnAaa(  $scope  ){
+    function  FnAaa(  $scope  ){
 }
 FnAaa.prototype.num =  '  123  ';
 FnAaa.prototype.text =  '  hello  ';
 FnAaa.prototype.show =  function(){
-return '  angular.js '
+    return '  angular.js '
 } 
 ```
 
 ```html
 <div  ng-controller="FnAaa  as a1">
-<div>{{  a1.text  }}</div>
+    <div>{{  a1.text  }}</div>
 </div>
 ```
 
@@ -515,28 +521,28 @@ return '  angular.js '
 ```html
 <a>
 ```
-    * 在angular中<a>标签会阻止默认行为
+在angular中a标签会阻止默认行为
 
 ```html
 <select>
 ```
-    * ng-options
+* ng-options
     * >>  for in
         * 用在表单验证当中
         * 用法：
 ```javascript
 $scope.colors =  [
-{  name :  ' red '},
-{  name :  ' green '},
-{  name :  ' yellow '},
+    {  name :  ' red '},
+    {  name :  ' green '},
+    {  name :  ' yellow '},
 ]
 ```
 ```html
 <div  ng-app="myApp"  ng-controller="Aaa">
-<a href="  ">{{ myColor.name }}</a>
-<select  ng-options=" color.name for in colors "  ng-model=" myColor ">
+    <a href="  ">{{ myColor.name }}</a>
+    <select  ng-options=" color.name for in colors "  ng-model=" myColor ">
 
-</select>
+    </select>
 </div>
 ```
 注意： 使用ng-options 必须用 ng-model 不然不显示
@@ -555,7 +561,7 @@ $scope.colors =  [
 novalidate 阻止表单默认的行为
 ```javascript
 <form  novalidate>
-<input  type="email"/>
+    <input  type="email"/>
 </form>
 ```
 
@@ -582,12 +588,12 @@ novalidate 阻止表单默认的行为
 用法：
 ```html
 <form  novalidate  name=" myForm "> 
-<input   type="email"   name= "  myText  "  ng-model=" text "/>
-<div>{{ myForm.myText.$valid }}</div>
-<div>{{ myForm.myText.$invalid }}</div>
-<div>{{ myForm.myText.$pristine }}</div>
-<div>{{ myForm.myText.$dirty }}</div>
-<div>{{ myForm.myText.$error }}</div>   
+    <input   type="email"   name= "  myText  "  ng-model=" text "/>
+    <div>{{ myForm.myText.$valid }}</div>
+    <div>{{ myForm.myText.$invalid }}</div>
+    <div>{{ myForm.myText.$pristine }}</div>
+    <div>{{ myForm.myText.$dirty }}</div>
+    <div>{{ myForm.myText.$error }}</div>   
 </form>
 ```
 
@@ -683,9 +689,9 @@ m1.directive('myTab',function(){
 写法：
 ```javascript
 link : function( scope，element，attr，reController ){
-element.datagate(' input ',' click ',function(){
-$(this).attr(' class ',' active ').sibling(' input ').attr(' class ','');
-})
+    element.datagate(' input ',' click ',function(){
+        $(this).attr(' class ',' active ').sibling(' input ').attr(' class ','');
+    })
 }
 ```
 
