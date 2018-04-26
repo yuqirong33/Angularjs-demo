@@ -200,7 +200,7 @@ $rootScope.name  =  'hello';
 ```javascript
 <pre>{{ name |  json  }}</pre>  //注意：必须在pre标签，因为能够识别
 ```
-    * 转换为：
+转换为：
 ```javascript
 {
 "name"  :  "hello",
