@@ -541,7 +541,7 @@ FnAaa.prototype.show =  function(){
 <select>
 ```
 * ng-options
-    * >>  for in
+    * 》  for in
         * 用在表单验证当中
         * 用法：
 ```javascript
