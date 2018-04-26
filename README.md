@@ -512,10 +512,14 @@ return '  angular.js '
 
 
 ### 标签指令：
-* <a>
+```html
+<a>
+```
     * 在angular中<a>标签会阻止默认行为
 
-* <select>
+```html
+<select>
+```
     * ng-options
     * >>  for in
         * 用在表单验证当中
@@ -538,9 +542,16 @@ $scope.colors =  [
 注意： 使用ng-options 必须用 ng-model 不然不显示
 
 
+```html
 <textarea>
+```
+```html
 <input>
+```
+```html
 <form>
+```
+
 novalidate 阻止表单默认的行为
 ```javascript
 <form  novalidate>
