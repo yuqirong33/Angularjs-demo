@@ -290,8 +290,8 @@ ng-model
     * 代表偶数，返回true，否则false
     * <li  ng-repeat="  data in datalist  ">{{ $odd }}</li>
 
-ng-repeat-start
-ng-repeat-end
+ng-repeat-start        
+ng-repeat-end        
 ```javascript
 <div  ng-repeat-start=" data in datalist ">{{ data }}</div>
 <p>{{ data }}</p>
@@ -300,14 +300,14 @@ ng-repeat-end
 
 
 ### 事件指令：
-和传统的事件区别：可以直接写表达式，可以直接操作数据变量，进行动态的操作
-ng-click /  dbclick
-ng-mousedown /  up
-ng-mouseenter /  leave
-ng-mousemove /  over /  out
-ng-keydown /  up /  press
-ng-focus /  blur
-ng-submit
+和传统的事件区别：可以直接写表达式，可以直接操作数据变量，进行动态的操作        
+ng-click /  dbclick        
+ng-mousedown /  up        
+ng-mouseenter /  leave        
+ng-mousemove /  over /  out        
+ng-keydown /  up /  press        
+ng-focus /  blur        
+ng-submit        
 
 ### 事件指令：
 * ng-selected
