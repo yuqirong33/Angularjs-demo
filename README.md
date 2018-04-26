@@ -166,7 +166,7 @@ $scope.name =  'hi'
 })
 },2000)
 ```
-    * 正常情况下setTimeout是不会发生视图变化的
+正常情况下setTimeout是不会发生视图变化的
 
 * angular.module
     * controller
@@ -179,26 +179,26 @@ m1.run(['$rootScope',function($rootScope){
 $rootScope.name  =  'hello';
 }])
 ```
-    * 注意：只能全局作用域下才能使用
+注意：只能全局作用域下才能使用
 
 
 ### angular的过滤器
 * currency
-        * 钱的那个逗号 可以修改单位
-        * {{  name |  currency  :  ' ￥ '  }}
+    * 钱的那个逗号 可以修改单位
+    * {{  name |  currency  :  ' ￥ '  }}
 
 * number
-         * {{ name | number  :  0  }}
-         * 保留小时，可以选择保留多少个小数，最少保留0条小数
+    * {{ name | number  :  0  }}
+    * 保留小时，可以选择保留多少个小数，最少保留0条小数
 
 * lowercase /  uppercase
-         * {{ name |lowercase }}  //转小写
-         * {{ name  |uppercase  }}  //转大写
+    * {{ name |lowercase }}  //转小写
+    * {{ name  |uppercase  }}  //转大写
 
 * json
-         * 将json格式的字符串显示更友好
-         * <pre>{{ name |  json  }}</pre>  //注意：必须在<pre>标签，因为能够识别
-         * 转换为：
+    * 将json格式的字符串显示更友好
+    * <pre>{{ name |  json  }}</pre>  //注意：必须在<pre>标签，因为能够识别
+    * 转换为：
          ```javascript
             {
             "name"  :  "hello",
@@ -217,7 +217,7 @@ $rootScope.name  =  'hello';
        
 * orderBy
     * 排序 针对数组 数组格式必须：
-    ```javascript
+```javascript
 $scope.name =  [
 {  name :  'red'  ,  age  :  '20'  },
 {  name :  'yellow'  ,  age  :  '15'  },
@@ -468,6 +468,7 @@ FnAaa.prototype.show =  function(){
 return '  angular.js '
 } 
 ```
+
 ```html
 <div  ng-controller="FnAaa  as a1">
 <div>{{  a1.text  }}</div>
@@ -578,10 +579,10 @@ password  密码
 
 ### 自定义指令：
  * angular.module
-        * 》controller
-        * 》 run
-        * 》 filter
-        * 》 directive   自定义指令的核心
+    * 》controller
+    * 》 run
+    * 》 filter
+    * 》 directive   自定义指令的核心
 * restrict    自定义指令的类型
     * 指令类型有4种：
         * E：element A：attribute M：comment C: class
