@@ -364,8 +364,10 @@ ng-submit
 和传统的input事件区别：可以直接写表达式，可以直接操作数据变量，进行动态的操作
 * ng-disabled
     * 按钮禁止使用属性
-    * <input type="button" value="{{text}}" ng-disabled="isDisabled"/>
     * 在模块函数中使用 $scope.isDisabled = true;
+```html
+<input type="button" value="{{text}}" ng-disabled="isDisabled"/>
+```
 
 * ng-readonly
     * input输入框禁止使用属性 显示上面不是禁止的  有光标出现  但是不能输入任何东西
